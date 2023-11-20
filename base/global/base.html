@@ -1,0 +1,25 @@
+{% include "global/partials/head.html" %}
+{% include "global/partials/menu.html" %}
+  <body>
+    <!--
+      Basicamente: Se, a a chave text (que se tornou uma variável aqui neste arquivo)
+      Se ela realmente existir, ter um valor, e ser passada para este arquivo
+      Exibimos o block texto, do index.html do arquivo que extends este arquivo base
+      Qual arquivo extends esse? index.html do blog.
+      Então basicamente, estamos verificando, se foi passado uma chave-valor com o nome "text"
+      E se ela existir aqui, exibimos o bloco texto, que tem como escopo passado,
+      O valor da variável text (Olá blog) : {% block texto %} {{text}} {% endblock texto %}
+    -->
+    {% if text %}
+      <h1>{% block textos %} BASE {% endblock textos %}</h1>
+    {% endif %}
+
+    <!--Main, contem dois tipos de BLOCK diferentes, cada um com seu respectivo nome.-->
+    <main class="content">
+      <!--O ARTICLE de: 'blog/templates/blog/post.html' entra aqui, no block POSTS-->
+      {% block posts %} {% endblock posts%}
+      {% block home %} {% endblock home%}
+    </main>
+
+  </body>
+</html>

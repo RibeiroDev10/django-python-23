@@ -1,0 +1,28 @@
+{% extends "global/base.html" %}
+
+
+<!--
+    ESSE BLOCK TEXTO, SE SOBRESSAIRÁ SOB O BLOCK TEXTO DA BASE
+    'base/global/base.html' contém: <h1>{% block texto %} BASE {% endblock texto %}</h1>
+    se aqui, no index do app blog, que extends 'global/base.html' tivermos,
+    o mesmo block texto. O block texto que prevalecerá, 
+    será o block texto do index que extends a base global.
+-->
+{% block textos %} {{text}} {% endblock textos %}
+
+<!--No nosso index.html do BLOG, criamos também o BLOCK POSTS-->
+<!--Esse mesmo BLOCK POSTS, está em 'base/global/base.html'-->
+
+
+<!--
+    Aqui, no index.html do BLOG, eu incluo
+    o 'postblock.html' que está na pasta global, de base.
+    Ou seja, entrou no blog, o usuário recebe esse template aqui (index.html do blog)
+    esse template aqui, ta puxando tudo de "global/base.html"
+-->
+{% block posts %}
+    {% for post in posts %} <!--POSTS = Chave da variável Context da view, transformada em variável aqui no index. -->
+        <!--INCLUI TODO O CONTEUDO DESSE PATH, AQUI NESSE ARQUIVO INDEX.HTML-->
+        {% include 'global/partials/postblock.html'%}
+    {% endfor %}
+{% endblock posts %}

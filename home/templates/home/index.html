@@ -1,0 +1,16 @@
+{% extends "global/base.html" %}
+
+<!--
+    Tudo que é BLOCK, nos templates das pastas APP,
+    no final, se comunica com os BLOCK da pasta GLOBAL. 
+    Ou seja, na pasta GLOBAL eu também vou ter o BLOCK TEXTO,
+    nisso, os dois se comunicam, se integram e formam um template dinamico.
+-->
+
+{% block texto %} 
+    {{text}}
+{% endblock texto %}
+
+{% block home%}
+    <h1>HOME</h1>
+{% endblock home %}
